@@ -108,9 +108,10 @@ a.description {
   margin: 0 auto;
   display: grid;
   padding: 3rem;
-  background: #070707;
+  background: #000;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
+
 }
 @media only screen and (max-width: 768px) {
   .container {
