@@ -35,6 +35,7 @@ Medium:
 
 - Spacing system (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 
@@ -46,15 +47,52 @@ Medium:
 :root {
   --primary-color: #ff7613;
   --text-color: #727171;
+  --text-color2: #fff;
+  --background-color: #000;
 }
 html {
   font-size: 10px;
 }
 body {
   font-family: Inter, sans-serif;
-  background-color: black;
-  color: white;
-  margin-bottom: 23px;
+  background-color: var(--background-color);
+  color: var(--text-color2);
+  margin-bottom: 32px;
+}
+
+/* layouts */
+.container {
+  max-width: 1000px;
+  width: 91%;
+  margin: 0 auto;
+  display: grid;
+  padding: 3rem;
+  background: var(--background-color);
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.profile {
+  grid-column: 1 / -1;
+  margin-bottom: 2rem;
+}
+.group-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.group-3 {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  margin-top: 18px;
+}
+.group-3 div {
+  flex: 1;
 }
 
 /* common styles */
@@ -64,7 +102,7 @@ img {
 }
 a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color2);
 }
 .description,
 a.description {
@@ -91,7 +129,7 @@ a.description {
 }
 .item_title {
   font-size: 1.6rem;
-  color: white;
+  color: var(--text-color2);
   font-weight: 500;
   margin: 0.8rem 0;
 }
@@ -99,56 +137,6 @@ a.description {
   font-size: 1.4rem;
   color: var(--text-color);
   font-weight: 400;
-}
-
-/* layouts */
-.container {
-  max-width: 1000px;
-  width: 91%;
-  margin: 0 auto;
-  display: grid;
-  padding: 3rem;
-  background: #070707;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-}
-@media only screen and (max-width: 768px) {
-  .container {
-    width: 100%;
-    grid-template-columns: 1fr;
-    padding: 3rem;
-    gap: 7rem;
-  }
-}
-.profile {
-  grid-column: 1 / -1;
-  margin-bottom: 2rem;
-}
-.group-1 {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-.group-3 {
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
-  grid-column: 1/-1;
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  margin-top: 18px;
-}
-.group-3 > div {
-  flex: 1;
-}
-@media only screen and (max-width: 768px) {
-  .profile {
-    margin-bottom: 0;
-  }
-  .group-3 {
-    flex-direction: column;
-  }
 }
 
 /* profile */
@@ -160,7 +148,7 @@ a.description {
   max-width: 250px;
 }
 .profile_name_firstName {
-  color: white;
+  color: var(--text-color2);
   font-weight: 200;
   font-size: clamp(2rem, 8vw, 4rem);
   text-transform: uppercase;
@@ -183,7 +171,7 @@ a.description {
   display: block;
   text-decoration: none;
   padding: 12px 18px;
-  border: #fff solid 2px;
+  border: var(--text-color2) solid 2px;
   font-size: 1.6rem;
   margin-top: 1rem;
   border-radius: 55px;
@@ -194,11 +182,6 @@ a.description {
   color: var(--primary-color);
   border: var(--primary-color) solid 2px;
   transition: all 0.7s;
-}
-@media only screen and (max-width: 768px) {
-  .profile_container {
-    flex-direction: column;
-  }
 }
 
 /* eduction */
@@ -242,21 +225,57 @@ hr {
   border: none;
   border-top: 2px solid rgba(128, 128, 128, 0.229);
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 3rem;
+    gap: 7rem;
+  }
+  .profile_container {
+    flex-direction: column;
+  }
+  .profile {
+    margin-bottom: 0;
+  }
+  .group-3 {
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   hr {
     margin: 0 auto;
   }
+  .container {
+    justify-items: center;
+  }
 
+  img {
+    width: 85%;
+  }
+  .contact_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .downloadBtn {
+    margin-top: 18px;
+  }
+  .profile_name_lastName {
+    font-size: clamp(2.5rem, 15vw, 4rem);
+  }
   .group-3,
   .profile_container {
     align-items: center;
+  }
+  h3.title {
+    margin-bottom: 12px;
   }
 
   .title,
   img {
     text-align: center;
-  }
-  .container {
-    justify-items: center;
   }
 }
