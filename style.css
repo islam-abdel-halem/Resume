@@ -139,25 +139,6 @@ a.description {
   font-weight: 400;
 }
 
-/* layouts */
-.container {
-  max-width: 1000px;
-  width: 91%;
-  margin: 0 auto;
-  display: grid;
-  padding: 3rem;
-  background: #070707;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-}
-@media only screen and (max-width: 768px) {
-  .container {
-    width: 100%;
-    grid-template-columns: 1fr;
-    padding: 3rem;
-    gap: 7rem;
-  }
-}
 .profile {
   grid-column: 1 / -1;
   margin-bottom: 2rem;
@@ -177,17 +158,10 @@ a.description {
   gap: 5rem;
   margin-top: 18px;
 }
-.group-3 > div {
+.group-3  div {
   flex: 1;
 }
-@media only screen and (max-width: 768px) {
-  .profile {
-    margin-bottom: 0;
-  }
-  .group-3 {
-    flex-direction: column;
-  }
-}
+
 
 /* profile */
 .profile_container {
